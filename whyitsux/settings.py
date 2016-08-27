@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SITE_ID = 1
+
 
 # Application definition
 
@@ -36,8 +38,10 @@ INSTALLED_APPS = [
 	'django.contrib.contenttypes',
 	'django.contrib.sessions',
 	'django.contrib.messages',
+	'django.contrib.sites',
 	'django.contrib.staticfiles',
 
+	'rest_framework',
 	'social.apps.django_app.default',
 
 	'whyitsuxapp',
