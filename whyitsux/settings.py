@@ -38,6 +38,8 @@ INSTALLED_APPS = [
 	'django.contrib.messages',
 	'django.contrib.staticfiles',
 
+	'social.apps.django_app.default',
+
 	'whyitsuxapp',
 ]
 
@@ -64,10 +66,23 @@ TEMPLATES = [
 				'django.template.context_processors.request',
 				'django.contrib.auth.context_processors.auth',
 				'django.contrib.messages.context_processors.messages',
+				'social.apps.django_app.context_processors.backends',
+				'social.apps.django_app.context_processors.login_redirect',
 			],
 		},
 	},
 ]
+
+AUTHENTICATION_BACKENDS = (
+	'social.backends.facebook.FacebookOAuth2',
+	'social.backends.google.GoogleOAuth2',
+	'social.backends.twitter.TwitterOAuth',
+	'social.backends.github.GithubOAuth2',
+	'social.backends.bitbucket.BitbucketOAuth2',
+	'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_STRATEGY = 'whyitsux.social_strategy.EnvDjangoStrategy'
 
 WSGI_APPLICATION = 'whyitsux.wsgi.application'
 
