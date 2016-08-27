@@ -4,11 +4,13 @@ from rest_framework import viewsets
 from whyitsuxapp import models, serializers
 
 class Categories(viewsets.ReadOnlyModelViewSet):
-	queryset = models.Category.on_site.all()
+	#queryset = models.Category.on_site.all()
+	queryset = models.Category.objects.all()
 	serializer_class = serializers.CategorySerializer
 
 class Topics(viewsets.ReadOnlyModelViewSet):
-	queryset = models.Topic.on_site.all()
+	#queryset = models.Topic.on_site.all()
+	queryset = models.Topic.objects.all()
 	serializer_class = serializers.TopicSerializer
 
 class Comments(viewsets.ModelViewSet):
